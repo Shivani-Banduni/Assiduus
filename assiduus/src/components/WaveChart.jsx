@@ -1,8 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import Dropdown from './Dropdown';
+import Bargraph from './Bargraph';
+
 
 const WaveChart = () => {
   const chartRef = useRef(null);
+
+
+
+
+
 
   useEffect(() => {
     const svgWidth = 500;
@@ -56,7 +64,14 @@ const WaveChart = () => {
 
   }, []);
 
-  return <div ref={chartRef}></div>;
+  return (
+  <>
+<Dropdown/>
+<div  ref={chartRef}></div>;
+
+  </>
+  
+  )
 };
 
 export default WaveChart;

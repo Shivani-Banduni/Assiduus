@@ -1,5 +1,83 @@
 .main{
-background-color: red;
 border: 2px solid black;
 height: 100%;
+}
+
+
+.main-div{
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  border: 2px solid blue;
+}
+.right-div{
+  display: flex;
+  gap: 10px;
+}
+
+.second-bargraph{
+  display: flex;
+  gap:13vh;
+  border: 2px solid green;
+}
+.main-div1{
+  display: flex;
+  border: 2px solid orange;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+align-items: center;
+border: 2 px solid black;
+gap: 3%;
+background-color: red;
+
+}
+.main-div1 div{
+  width: 50%;
+}
+
+.main-div div{
+  border: 2px solid black;
+}
+.wavechart{
+  border: 2px solid black;
+  margin-left: 7%;
+  align-items: center;
+  justify-content: center;
+
+}.upper-div{
+  height: 52vh;
+}
+
+
+
+
+
+
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  
+  border: 1px solid #ccc;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px; /* Optional: To make the checkbox look rounded */
+  margin-right: 10px;
+}
+.transactions{
+  border: 2px solid black;
 }
