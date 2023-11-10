@@ -54,8 +54,8 @@ const Navbar = () => {
             </IconButton>
 
             {/* Profile Photo */}
-            <IconButton aria-label="profile photo" sx={{ p: '10px' }}>
-              <Avatar alt="User" src="/path/to/profile-photo.jpg" />
+            <IconButton aria-label="  " sx={{ p: '10px' }}>
+              <Avatar alt="User" src="https://img.freepik.com/free-photo/portrait-smiling-beautiful-brunette-woman-cute-dress-red-lips-flowers-background-concept-professional-photossesion-modern-greenhouse_7502-8441.jpg" />
             </IconButton>
 
             {/* Drop Down Arrow */}

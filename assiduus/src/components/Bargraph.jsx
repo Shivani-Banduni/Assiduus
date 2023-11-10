@@ -11,7 +11,7 @@ const Bargraph = () => {
 
   useEffect(() => {
     const data = [
-      { date: '2023-01-01', value: 5 },
+      { date: 'Older', value: 5 },
       { date: '2023-01-10', value: 15 },
       { date: '2023-01-15', value: 5 },
       { date: '2023-01-20', value: 3 },
@@ -19,8 +19,8 @@ const Bargraph = () => {
       { date: '2023-01-30', value: 12 }
     ];
 
-    const margin = { top: 20, right: 10, bottom: 60, left: 10 };
-    const width = 500 - margin.left - margin.right;
+    const margin = { top: 20, right: 15, bottom: 60, left: 20 };
+    const width = 550 - margin.left - margin.right;
     const height = 250 - margin.top - margin.bottom;
 
     const parseDate = d3.timeParse('%Y-%m-%d');

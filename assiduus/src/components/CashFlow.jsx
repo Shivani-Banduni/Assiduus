@@ -14,15 +14,15 @@ const CashFlow = () => {
       { date: 'January 01', value1: 3, value2: 3 }
     ];
 
-    const margin = { top: 50, right: 10, bottom: 60, left: 10 };
-    const width = 480 - margin.left - margin.right;
+    const margin = { top: 50, right: 10, bottom: 100, left: 10 };
+    const width = 500 - margin.left - margin.right;
     const height = 250 - margin.top - margin.bottom;
 
     const x = d3
       .scaleBand()
       .domain(data.map((d) => d.date))
       .range([0, width])
-      .paddingInner(0.62)
+      .paddingInner(0.6)
       .paddingOuter(0.2);
 
     const y = d3
@@ -38,35 +38,26 @@ const CashFlow = () => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
+    // Bars
     data.forEach((d) => {
-      d.value = d.value1 + d.value2;
+      svg
+        .append('rect')
+        .attr('x', x(d.date))
+        .attr('y', y(d.value1 + d.value2))
+        .attr('width', x.bandwidth())
+        .attr('height', height - y(d.value1 + d.value2))
+        .attr('rx', 5)
+        .attr('fill', 'rgb(85,188,126)');
+
+      svg
+        .append('rect')
+        .attr('x', x(d.date))
+        .attr('y', y(d.value1))
+        .attr('width', x.bandwidth())
+        .attr('height', y(d.value2))
+        .attr('rx', 7)
+        .attr('fill', 'rgb(84,184,72)');
     });
-
-    svg
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('x', (d) => x(d.date))
-      .attr('y', (d) => y(d.value))
-      .attr('width', x.bandwidth() - 5)
-      .attr('height', (d) => height - y(d.value))
-      .attr('rx', 5)
-      .attr('fill', 'rgb(85,188,126)'); // In color
-
-    svg
-      .selectAll('.out-bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'out-bar')
-      .attr('x', (d) => x(d.date))
-      .attr('y', (d) => y(d.value1))
-      .attr('width', x.bandwidth() - 5)
-      .attr('height', (d) => y(d.value2))
-      .attr('rx', 7) // Rounded corners
-      .attr('fill', 'rgb(84,184,72)'); // Out color
 
     // X-axis
     svg
@@ -75,10 +66,10 @@ const CashFlow = () => {
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x).tickSize(0))
       .selectAll('text')
-      .attr('transform', 'rotate(-25)')
+      .attr('transform', 'rotate(-45)')
       .style('text-anchor', 'end');
 
-    // Hide x-axis line
+    // Hide x-axis line using CSS
     svg.select('.x-axis path').style('display', 'none');
 
     // Y-axis (invisible)
@@ -86,7 +77,7 @@ const CashFlow = () => {
       .append('g')
       .attr('class', 'y-axis')
       .call(d3.axisLeft(y).tickSize(0))
-      .style('opacity', 0); // Make y-axis invisible
+      .style('opacity', 0);
 
     // Remove x-axis and y-axis lines
     svg.selectAll('.x-axis line').remove();
@@ -94,13 +85,19 @@ const CashFlow = () => {
   }, []);
 
   return (
-    <div style={{ background: 'white' }}>
-      <div className='second-bargraph'>
-        <b>Total Cash Flow</b>
-        <button>New Transaction</button>
+    <div className='third-div'>
+      <div className='container'>
+        <div>
+          <span className='label'><b>Total Cash Flow</b></span>
+        </div>
+        <div className='transactions' style={{ display: 'flex' }}>
+          <div style={{ background: 'rgb(85,188,126) ' }} className='checkbox'></div>
+          <span className='label'>In</span>
+          <div style={{ background: 'rgb(84,184,72)' }} className='checkbox'></div>
+          <span className='label'>Out</span>
+        </div>
       </div>
-      <hr />
-      <svg className='bargraph-lower-div' ref={svgRef}></svg>
+      <svg ref={svgRef}></svg>
     </div>
   );
 };
