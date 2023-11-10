@@ -6,24 +6,24 @@ const CashFlow = () => {
 
   useEffect(() => {
     const data = [
-      { date: 'August 01', value1: 5, value2: 5 },
-      { date: 'September 01', value1: 15, value2: 10 },
-      { date: 'October 01', value1: 10, value2: 5 },
+      { date: 'August 01', value1: 3, value2: 3 },
+      { date: 'September 01', value1: 6, value2: 8 },
+      { date: 'October 01', value1: 8, value2: 4 },
       { date: 'November 01', value1: 5, value2: 3 },
-      { date: 'December 01', value1: 9, value2: 9 },
-      { date: 'January 01', value1: 6, value2: 6 }
+      { date: 'December 01', value1: 5, value2: 5 },
+      { date: 'January 01', value1: 3, value2: 3 }
     ];
 
-    const margin = { top: 10, right: 40, bottom: 20, left: 50 };
-    const width = 300 - margin.left - margin.right;
+    const margin = { top: 50, right: 10, bottom: 60, left: 10 };
+    const width = 480 - margin.left - margin.right;
     const height = 250 - margin.top - margin.bottom;
 
     const x = d3
       .scaleBand()
       .domain(data.map((d) => d.date))
       .range([0, width])
-      .paddingInner(0.6) // Adjust padding between bars
-      .paddingOuter(0.5); // Adjust padding at the beginning and end of the x-axis
+      .paddingInner(0.62)
+      .paddingOuter(0.2);
 
     const y = d3
       .scaleLinear()
@@ -38,26 +38,35 @@ const CashFlow = () => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Bars
     data.forEach((d) => {
-      svg
-        .append('rect')
-        .attr('x', x(d.date))
-        .attr('y', y(d.value1 + d.value2))
-        .attr('width', x.bandwidth())
-        .attr('height', height - y(d.value1 + d.value2))
-        .attr('rx', 7) // Rounded corners
-        .attr('fill', '#5A9C42'); // Dark green color
-
-      svg
-        .append('rect')
-        .attr('x', x(d.date))
-        .attr('y', y(d.value1))
-        .attr('width', x.bandwidth())
-        .attr('height', y(d.value2))
-        .attr('rx', 7) // Rounded corners
-        .attr('fill', '#8CC84B'); // Light green color
+      d.value = d.value1 + d.value2;
     });
+
+    svg
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('x', (d) => x(d.date))
+      .attr('y', (d) => y(d.value))
+      .attr('width', x.bandwidth() - 5)
+      .attr('height', (d) => height - y(d.value))
+      .attr('rx', 5)
+      .attr('fill', 'rgb(85,188,126)'); // In color
+
+    svg
+      .selectAll('.out-bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'out-bar')
+      .attr('x', (d) => x(d.date))
+      .attr('y', (d) => y(d.value1))
+      .attr('width', x.bandwidth() - 5)
+      .attr('height', (d) => y(d.value2))
+      .attr('rx', 7) // Rounded corners
+      .attr('fill', 'rgb(84,184,72)'); // Out color
 
     // X-axis
     svg
@@ -66,9 +75,11 @@ const CashFlow = () => {
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x).tickSize(0))
       .selectAll('text')
-      .attr('transform', 'rotate(-45)')
+      .attr('transform', 'rotate(-25)')
       .style('text-anchor', 'end');
-      svg.select('.x-axis path').style('display', 'none');
+
+    // Hide x-axis line
+    svg.select('.x-axis path').style('display', 'none');
 
     // Y-axis (invisible)
     svg
@@ -83,20 +94,14 @@ const CashFlow = () => {
   }, []);
 
   return (
-    <>
-      <div className='container'>
-        <div>
-          <span className='label'>Total Cash Flow</span>
-        </div>
-        <div className='transactions' style={{ display: 'flex' }}>
-          <div className='checkbox'></div>
-          <span className='label'>In</span>
-          <div className='checkbox'></div>
-          <span className='label'>Out</span>
-        </div>
+    <div style={{ background: 'white' }}>
+      <div className='second-bargraph'>
+        <b>Total Cash Flow</b>
+        <button>New Transaction</button>
       </div>
-      <svg ref={svgRef}></svg>
-    </>
+      <hr />
+      <svg className='bargraph-lower-div' ref={svgRef}></svg>
+    </div>
   );
 };
 

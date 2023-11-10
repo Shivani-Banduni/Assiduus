@@ -14,12 +14,12 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { icon: <DashboardIcon />, text: 'Dashboard', link: '/menupage', index: 0 },
-    { icon: <AccountCircleIcon />, text: 'Account', link: '/account', index: 1 },
-    { icon: <MonetizationOnIcon />, text: 'Payroll', link: '/payroll', index: 2 },
-    { icon: <AssessmentIcon />, text: 'Reports', link: '/reports', index: 3 },
-    { icon: <SupervisorAccountIcon />, text: 'Advisor', link: '/advisor', index: 4 },
-    { icon: <ContactsIcon />, text: 'Contacts', link: '/contacts', index: 5 },
+    { icon: <DashboardIcon />, text: 'Dashboard', index: 0 },
+    { icon: <AccountCircleIcon />, text: 'Account', index: 1 },
+    { icon: <MonetizationOnIcon />, text: 'Payroll',  index: 2 },
+    { icon: <AssessmentIcon />, text: 'Reports',  index: 3 },
+    { icon: <SupervisorAccountIcon />, text: 'Advisor',  index: 4 },
+    { icon: <ContactsIcon />, text: 'Contacts',index: 5 },
   ];
 
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
   console.log(updatedDivs,'updateddivs')
   console.log(clickedDivs,'clickeddivs')
 
-    navigate(menuItems[index].link);
+    // navigate(menuItems[index].link);
   };
   
   
@@ -53,9 +53,9 @@ const Sidebar = () => {
         />
         <span style={{ fontWeight: 'bold', fontSize: 'large', marginTop: '10px', color: 'black' }}>ASSIDUUS</span>
       </div>
-      <List style={{ marginTop: '6vh' }}>
+      <List style={{ marginTop: '2vh' }}>
         {menuItems.map((item) => (
-          <Link to={item.link} key={item.index} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to='/menupage' key={item.index} style={{ textDecoration: 'none', color: 'inherit' }}>
             <ListItem
               onClick={() => handleDivClick(item.index)}
               style={{ background: clickedDivs[item.index] ? colr : 'white',  marginTop: '10px' }}

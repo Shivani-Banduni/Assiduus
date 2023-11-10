@@ -17,8 +17,19 @@ height: 100%;
 
 .second-bargraph{
   display: flex;
-  gap:13vh;
+  gap:22vh;
+  height: 6vh;
   border: 2px solid green;
+}
+.second-bargraph b{
+  margin-left: 2vh;
+  margin-top: 1vh;
+ 
+
+}
+.second-bargraph button{
+  background-color: rgb(232,238,253);
+  color: rgb(129,179,192);
 }
 .main-div1{
   display: flex;
@@ -51,10 +62,31 @@ background-color: red;
 
 
 
+.table{
+  border: 2px solid black;
+  width: 36%;
+  margin-right: 3vh;
+  /* margin-right: 5%; */
 
+}
+.forthdiv1{
+  height: 5vh;
+border: 3px solid red;
+}
 
-
-
+.forthdiv1 b{
+  margin-left: 4%;
+  margin-top: 2%;
+}
+.data-table{
+  width: 50vh;
+  justify-content: center;
+  
+  
+}
+.main{
+  background-color: rgb(246,247,249);
+}
 
 
 .container {
@@ -62,15 +94,21 @@ background-color: red;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  
-  border: 1px solid #ccc;
+  /* margin-left: 4vh; */
+  border: 1px solid red;
+  height: 10%;
 }
 
 .label {
   font-weight: bold;
   margin-right: 10px;
 }
-
+.third-div{
+  border: 8px solid purple;
+  margin-left:3vh;
+  background-color: white;
+  /* background-color: white; */
+}
 .checkbox {
   width: 20px;
   height: 20px;
@@ -81,3 +119,26 @@ background-color: red;
 .transactions{
   border: 2px solid black;
 }
+
+
+.wavechart-div{
+  background-color: white;
+  display: flex;
+  height: 5vh;
+  align-items: center;
+gap: 20%;
+}
+
+.wavegraph-div2{
+  background-color: white;
+}
+.bargraph-lower-div{
+  border: 2px solid black;
+
+}.modal{
+  margin-left: 40%;
+  background-color: rgb(144, 144, 230);
+border-radius: 5%;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
