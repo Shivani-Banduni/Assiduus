@@ -1,5 +1,5 @@
 .main{
-border: 2px solid black;
+/* border: 2px solid black; */
 height: 100%;
 }
 
@@ -8,7 +8,7 @@ height: 100%;
   display: flex;
   /* background-color: red; */
   justify-content: space-between;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 .right-div{
   display: flex;
@@ -34,12 +34,12 @@ height: 100%;
 }
 .main-div1{
   display: flex;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   width: 50%;
   justify-content: center;
   text-align: center;
 align-items: center;
-border: 2 px solid black;
+/* border: 2 px solid black; */
 gap: 3%;
 /* background-color: red; */
 
@@ -48,9 +48,9 @@ gap: 3%;
   width: 50%;
 }
 
-.main-div div{
+/* .main-div div{
   border: 2px solid black;
-}
+} */
 .wavechart{
   /* border: 2px solid black; */
   margin-left: 7%;
@@ -68,6 +68,11 @@ gap: 3%;
   margin-right: 3vh;
   background-color: white;
   /* margin-right: 5%; */
+  border-radius:3%;
+  border: 2px solid white;
+  margin-bottom: 2%;
+  margin-top: 1%;
+
 
 }
 .forthdiv1{
@@ -95,7 +100,7 @@ gap: 3%;
   justify-content: space-between;
   padding: 20px;
   /* margin-left: 4vh; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 10%;
 }
 
@@ -104,21 +109,26 @@ gap: 3%;
   margin-right: 10px;
 }
 .third-div{
-  border: 8px solid purple;
+  /* border: 8px solid purple; */
   margin-left:8vh;
   background-color: white;
+  border-radius: 3%;
+  border: '8px solid white';
+  margin-top: 0.5%;
+  height: 90%;
   /* background-color: white; */
 }
 .checkbox {
   width: 20px;
   height: 20px;
+  margin-bottom: 2%;
   border: 2px solid #333;
   border-radius: 4px; /* Optional: To make the checkbox look rounded */
   margin-right: 10px;
 }
-.transactions{
+/* .transactions{
   border: 2px solid black;
-}
+} */
 
 
 .wavechart-div{
@@ -126,6 +136,7 @@ gap: 3%;
   display: flex;
   height: 5vh;
   align-items: center;
+
 gap: 20%;
 }
 
@@ -133,13 +144,12 @@ gap: 20%;
   background-color: white;
 }
 .bargraph-lower-div{
-  border: 2px solid black;
   width: 100%;
-
+padding-right: -14%;
 
 }.modal{
   margin-left: 40%;
-  background-color: rgb(144, 144, 230);
+  background-color: rgb(55, 112, 55);
 border-radius: 5%;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

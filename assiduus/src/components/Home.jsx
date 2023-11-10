@@ -17,8 +17,8 @@ const Home = () => {
         <Sidebar />
           
 
-<div style={{border:'2px solid red', background:'rgb(246,247,249)',marginTop:'2.5vh'}}>
-<div className='upper-div' style={{display:'flex', justifyContent:'space-around', height:'20%', border:'8px solid yellow'} }>
+<div style={{ background:'rgb(246,247,249)',marginTop:'2.5vh'}}>
+<div className='upper-div' style={{display:'flex', justifyContent:'space-around', height:'20%'} }>
 
 <div className='wavechart'>
 
@@ -30,7 +30,7 @@ const Home = () => {
 
 
 
-<div style={{display:'flex',border:'8px solid green', justifyContent:'space-around'}}>
+<div style={{display:'flex', justifyContent:'space-around'}}>
   <div style={{ marginLeft:'5%', alignItems:'center',display:'flex', justifyContent:'center',width:'50%'}}><CashFlow/></div>
   <div className='table'><DataGrid/></div>
 </div>

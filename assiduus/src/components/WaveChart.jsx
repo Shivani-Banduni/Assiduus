@@ -113,7 +113,7 @@ const yScale = d3.scaleLinear()
   };
 
   return (
-    <div style={{background:'white',marginLeft:'9vh'}}>
+    <div style={{border:'2px solid white', borderRadius:'3%', background:'white',marginLeft:'9vh'}}>
       <div className='wavechart-div' >
         <div style={{  width: '170px', textAlign: 'center' }}>
           <b>Checking account</b>

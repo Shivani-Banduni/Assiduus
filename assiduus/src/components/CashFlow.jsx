@@ -6,15 +6,15 @@ const CashFlow = () => {
 
   useEffect(() => {
     const data = [
-      { date: 'August 01', value1: 3, value2: 3 },
-      { date: 'September 01', value1: 6, value2: 8 },
-      { date: 'October 01', value1: 8, value2: 4 },
-      { date: 'November 01', value1: 5, value2: 3 },
-      { date: 'December 01', value1: 5, value2: 5 },
-      { date: 'January 01', value1: 3, value2: 3 }
+      { date: 'August', value1: 8, value2: 8 },
+      { date: 'September', value1: 6, value2: 8 },
+      { date: 'October', value1: 8, value2: 8 },
+      { date: 'November', value1: 5, value2: 9 },
+      { date: 'December', value1: 6, value2: 9 },
+      { date: 'January', value1: 7, value2: 9 }
     ];
 
-    const margin = { top: 50, right: 10, bottom: 100, left: 10 };
+    const margin = { top: 50, right: 10, bottom: 40, left: 10 }; // Decreased bottom margin
     const width = 500 - margin.left - margin.right;
     const height = 250 - margin.top - margin.bottom;
 
@@ -42,7 +42,7 @@ const CashFlow = () => {
     data.forEach((d) => {
       svg
         .append('rect')
-        .attr('x', x(d.date))
+        .attr('x', x(d.date) + x.bandwidth() / 2) // Centering the bars
         .attr('y', y(d.value1 + d.value2))
         .attr('width', x.bandwidth())
         .attr('height', height - y(d.value1 + d.value2))
@@ -51,7 +51,7 @@ const CashFlow = () => {
 
       svg
         .append('rect')
-        .attr('x', x(d.date))
+        .attr('x', x(d.date) + x.bandwidth() / 2) // Centering the bars
         .attr('y', y(d.value1))
         .attr('width', x.bandwidth())
         .attr('height', y(d.value2))
@@ -63,11 +63,12 @@ const CashFlow = () => {
     svg
       .append('g')
       .attr('class', 'x-axis')
-      .attr('transform', `translate(0,${height})`)
+      .attr('transform', `translate(0, ${height + 28})`) // Adjusted translation //months 
       .call(d3.axisBottom(x).tickSize(0))
       .selectAll('text')
-      .attr('transform', 'rotate(-45)')
-      .style('text-anchor', 'end');
+      .attr('x', x.bandwidth() / 2) // Centering the text
+      .attr('transform', 'rotate(0)')
+      .style('text-anchor', 'middle'); // Centering the text
 
     // Hide x-axis line using CSS
     svg.select('.x-axis path').style('display', 'none');
